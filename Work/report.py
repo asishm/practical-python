@@ -13,6 +13,6 @@ def read_portfolio(filename):
         for ticker, nshares, share_price in reader:
             nshares = int(nshares)
             share_price = float(share_price)
-            portfolio.append((ticker, nshares, share_price))
+            portfolio.append({"name": ticker, "shares": nshares, "price": share_price})
     
     return portfolio
