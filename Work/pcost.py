@@ -1,13 +1,15 @@
 # pcost.py
 #
 # Exercise 1.27
+import csv
 
 def portfolio_cost(filename):
     cost = 0
     with open(filename, "rt") as f:
-        next(f) # skip headers
-        for line in f:
-            ticker, nshares, share_cost = line.split(",")
+        reader = csv.reader(f)
+        headers = next(reader) # skip headers
+        for row in reader:
+            ticker, nshares, share_cost = row
             try:
                 cost += int(nshares) * float(share_cost)
             except ValueError:
