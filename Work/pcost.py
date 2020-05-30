@@ -8,7 +8,10 @@ def portfolio_cost(filename):
         next(f) # skip headers
         for line in f:
             ticker, nshares, share_cost = line.split(",")
-            cost += int(nshares) * float(share_cost)
+            try:
+                cost += int(nshares) * float(share_cost)
+            except ValueError:
+                print(f"Invalid entries found nshares: {nshares}, share_cost: {share_cost}")
 
     return cost
 
