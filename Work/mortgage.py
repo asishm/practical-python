@@ -18,6 +18,6 @@ while principal > 0:
     month_payment = min(month_payment, principal * (1 + rate / 12))
     principal = principal * (1+rate/12) - month_payment
     total_paid = total_paid + month_payment
-    print(month, round(total_paid, 2), round(principal, 2))
+    print(f"{month:10d} {total_paid:10.2f} {principal:10.2f}")
 
-print('Total paid', round(total_paid, 2), '\nMonths', month)
+print(f'Total paid {total_paid:10.2f}\nMonths {month}')
