@@ -8,8 +8,7 @@ def portfolio_cost(filename):
     with open(filename, "rt") as f:
         reader = csv.reader(f)
         headers = next(reader) # skip headers
-        for row in reader:
-            ticker, nshares, share_cost = row
+        for ticker, nshares, share_cost in reader:
             try:
                 cost += int(nshares) * float(share_cost)
             except ValueError:
