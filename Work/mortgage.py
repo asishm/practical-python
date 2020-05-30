@@ -10,11 +10,11 @@ extra_payment = 1000
 month = 0
 
 while principal > 0:
+    month = month + 1
     if month >= extra_payment_start_month and month <= extra_payment_end_month:
         month_payment = payment + extra_payment
     else:
         month_payment = payment
-    month = month + 1
     principal = principal * (1+rate/12) - month_payment
     total_paid = total_paid + payment
     print(month, round(total_paid, 2), round(principal, 2))
